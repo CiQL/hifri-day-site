@@ -1,0 +1,113 @@
+:root{
+--hawaii-fridays-100: #e4ffe8;
+--hawaii-fridays-200: #c5ffcf;
+--hawaii-fridays-300: #a1ffb3;
+--hawaii-fridays-400: #72ff92;
+--hawaii-fridays-500: #0f6;
+--hawaii-fridays-600: #00e45b;
+--hawaii-fridays-700: #00c54f;
+--hawaii-fridays-800: #00a140;
+--hawaii-fridays-900: #00722d;
+--bs-primary: #0d6efd;
+--bs-secondary: #6c757d;
+--bs-success: #198754;
+--bs-info: #0dcaf0;
+--bs-warning: #ffc107;
+--bs-danger: #dc3545;
+--bs-light: #f8f9fa;
+--bs-dark: #212529;
+--discord-hf: #04a321;
+--wiki-hf-color1: #3ee652;
+--wiki-hf-color2: #a4f566;
+--wiki-hf-color3: #f8b93a;
+--wiki-hf-color4: #11a6c2;
+--wiki-hf-color5: #e67575;
+}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{color-scheme:light dark}
+body{font-family:'Open Sans',sans-serif;width:min(85vw,120ch);margin-inline:auto}
+h1,h2,h3,h4,h5,h6{font-family:'Lora',serif;font-weight:400;margin:1rem auto;text-wrap:balance}
+h1,h2{color:var(--discord-hf);font-weight:700}
+p{margin-top:1rem}
+ul{list-style-type:"\1F3DD"}
+ul.teams{list-style-type: ilb-teams-alpha}
+a:link{color:var(--hawaii-fridays-800)}
+a:visited{color:var(--wiki-hf-color5)}
+img,svg,video{max-width:100%;display:block;}
+.quote{
+	border-left: 3px solid var(--wiki-hf-color1);
+	padding: 0.5rem;
+	margin-left: 0;
+	width: 100%}
+.quote > blockquote{margin: 0.5rem;text-indent: 1rem}
+.quote > figcaption::before, .quote > cite::before{content:'~'}
+.quote > figcaption, .quote > cite {text-align:right;font-style:italic;color:var(--bs-info);}
+
+section:has(article){display:flex;gap:1rem;flex-direction:row;}
+section>article{flex:0 1 30%;padding:1rem;border-radius:1rem;transition:background-color 1s}
+
+@media (prefers-color-scheme:light) {
+	html{background-color:var(--bs-light);color:var(--bs-dark)}
+	.quote{background-color:var(--hawaii-fridays-100)}
+	section>article:hover{background-color:var(--hawaii-fridays-200)}
+}
+@media (prefers-color-scheme:dark) {
+	html{background-color:var(--bs-dark);color:var(--bs-light)}
+	.quote{background-color:var(--hawaii-fridays-900)}
+	section>article:hover{background-color:var(--hawaii-fridays-800)}
+}
+
+/* FUN STUFF */
+.fk,.fk>*{transition:color 0.5s,opacity 0.5s}
+.fk:not(:hover){color:transparent}
+.fk:not(:hover)>*{opacity:0;visibility:hidden}
+
+::-moz-selection { color: white;  background: green; }
+::selection      { color: white;  background: green; }
+.spoiler {
+	background-color: var(--color-bg);
+	color: var(--color-fg);
+	border-left: 3px solid #999; 
+	padding: 1rem;
+}
+span.spoiler { border: 0; padding: 0 0.25rem; color: transparent; transition: all 0.5s ease-in; }
+.spoiler > * {
+	opacity: 0;
+	transition: all 0.5s ease-in;
+	margin:0;padding:0;border:0;
+	color: var(--color-fg);
+}
+.spoiler:hover > * { opacity: 1; }
+span.spoiler:hover { color: var(--color-fg);}
+.intensify {
+	animation:intensify .1s steps(3) infinite;
+	display:inline-block;
+	text-transform:uppercase;
+	position:relative;
+	left:0;
+	top:0;
+}
+.intensity:hover { left: 0; top: 0; }
+.rainbow { animation: rainbow 4s linear infinite; }
+@keyframes intensify {
+	0% { left:0px; }
+	50% { left:2px; }
+	100% { top:0px; top:3px; }
+}
+@keyframes rainbow {
+	0% { color:#F44336; }
+	14% { color:#FF9800; }
+	28% { color:#FFEB3B; }
+	42% { color:#4CAF50; }
+	56% { color:#2196F3; }
+	70% { color:#3F51B5; }
+	84% { color:#9C27B0; }
+	100% { color:#F44336; }
+}
+
+@counter-style ilb-teams-alpha {
+	system: fixed;
+	symbols: "\1F531" "\1F980" "\1F339" "\1F450" "\1F5E3" "\1F45F" "\1F525" "\1F6E0" "\1F969" "\1F405" "\1F3DD" "\1F31E" "\1F575" "\1F36C" "\1F32E" "\1F357" "\1F6A4" "\1F4F1" "\1F40C" "\1F967" "\1F48B" "\1F3B8" "\1F3CB" "\2728";
+	suffix: " ";
+}
